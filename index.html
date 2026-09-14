@@ -11,11 +11,119 @@
 <h1 class="main-title">2026年の投資の推移です</h1>
 <canvas id="chart1" ></canvas>  <!-- width,height変更できる-->
 <script>
+ const chartLabels = ['3/28', '4/4', '4/11', '4/18', '4/25','5/2','5/9','5/16','5/23','5/30','6/6','6/13','6/20','6/27','7/4','7/11','7/18','7/25','8/1','8/8','8/15','8/22','8/29','9/4','9/11'];
+ const breakdownByDate = {
+     '3/28': {
+         labels: ['国内株式（現物）', '投資信託', '外国株式'],
+         values: [2163, 0, 0]
+        },
+     '4/4': {
+         labels: ['国内株式（現物）', '投資信託', '外国株式'],
+         values: [7171, 10288, 0]
+        },
+        '4/11': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [7033, 10673, 0]
+        },
+        '4/18': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [12872, 10996, 0]
+        },
+        '4/25': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [17757, 11062, 0]
+        },
+        '5/2': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [17805, 50496, 0]
+        },
+        '5/9': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [17274, 51614, 0]
+        },
+        '5/16': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [13860, 52766, 0]
+        },
+        '5/23': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [13000, 52677, 0]
+        },
+        '5/30': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [20888, 93700, 0]
+        },
+        '6/6': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [26817, 94525, 0]
+        },
+        '6/13': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [38301, 92235, 0]
+        },
+        '6/20': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [39184, 94892, 29860]
+        },
+        '6/27': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [75975, 93680, 24768]
+        },
+        '7/4': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [75860, 134369, 26101]
+        },
+        '7/11': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [77370, 135518, 26035]
+        },
+        '7/18': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [77540, 135532, 26016]
+        },
+        '7/25': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [81580, 135196, 26579]
+        },
+        '8/1': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [82560, 171950, 52066]
+        },
+        '8/8': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [82910, 175530, 52478]
+        },
+        '8/15': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [79660, 178816, 53066]
+        },
+        '8/22': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [81140, 175892, 52470]
+        },
+        '8/29': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [81010, 218007, 78623]
+        },
+        '9/4': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [81700, 212973, 77017]
+        },
+        '9/11': {
+            labels: ['国内株式（現物）', '投資信託', '外国株式'],
+            values: [85280, 208359, 75352]
+        }
+ };
+ const emptyBreakdown = {
+     labels: ['国内株式（現物）', '投資信託', '外国株式'],
+     values: [0, 0, 0]
+ };
+
  var ctx1 = document.getElementById('chart1').getContext('2d');
  var myChart = new Chart(ctx1, {
      type: 'line', // グラフの種類 line,bar,pie,
      data: {
-         labels: ['3/28', '4/4', '4/11', '4/18', '4/25','5/2','5/9','5/16','5/23','5/30','6/6','6/13','6/20','6/27','7/4','7/11','7/18','7/25','8/1','8/8','8/15','8/22','8/29','9/4','9/11'], // X軸のラベル
+         labels: chartLabels, // X軸のラベル
          datasets: [{
              label: '損益推移（週間）',
              data: [11,153,399,882,6,-515,128,2089,1140,2337,2675,-721,489,-6974,-1544,-406,-241,4027,531,4872,5496,3456,5359,-590,-3246], // Y軸のデータ
@@ -55,6 +163,19 @@
                  },
              },
          },
+         onClick: function(event, elements) {
+             if (!elements.length) {
+                 return;
+             }
+
+             const selectedIndex = elements[0].index;
+             const selectedDate = chartLabels[selectedIndex];
+             const selectedBreakdown = breakdownByDate[selectedDate] || emptyBreakdown;
+             myPieChart.data.labels = selectedBreakdown.labels;
+             myPieChart.data.datasets[0].data = selectedBreakdown.values;
+             myPieChart.options.plugins.title.text = `${selectedDate} の内訳（円）`;
+             myPieChart.update();
+         },
          scales: {
             x: {
                 display:true,
@@ -82,9 +203,9 @@
  const myPieChart = new Chart(ctx2, {
     type: 'pie',
     data: {
-        labels:['投資信託', '国内株式（現物）', '米国株式'],
+        labels: (breakdownByDate[chartLabels[0]] || emptyBreakdown).labels,
         datasets: [{
-            data: [56.5,23.1,20.4],
+            data: (breakdownByDate[chartLabels[0]] || emptyBreakdown).values,
             backgroundColor: 
             ['#5ccb9e','#1b6ce3','#ee82da'],
             borderWidth: 1
@@ -98,7 +219,7 @@
             },
             title:{
                 display: true,
-                text:'内訳（%）'
+                text:`${chartLabels[0]} の内訳（円）`
             }
         }
     }
