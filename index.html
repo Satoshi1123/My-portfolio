@@ -119,6 +119,21 @@
      values: [0, 0, 0]
  };
 
+ let selectedIndex = null;
+ function updatePieChart(index) {
+     if (index === selectedIndex) {
+         return;
+     }
+
+     selectedIndex = index;
+     const selectedDate = chartLabels[index];
+     const selectedBreakdown = breakdownByDate[selectedDate] || emptyBreakdown;
+     myPieChart.data.labels = selectedBreakdown.labels;
+     myPieChart.data.datasets[0].data = selectedBreakdown.values;
+     myPieChart.options.plugins.title.text = `${selectedDate} の内訳（円）`;
+     myPieChart.update();
+ }
+
  var ctx1 = document.getElementById('chart1').getContext('2d');
  var myChart = new Chart(ctx1, {
      type: 'line', // グラフの種類 line,bar,pie,
@@ -132,6 +147,8 @@
             cubicInterpolationMode: 'monotone',  // ★ここがポイント
             tension: 0.4,                       // 滑らかさ
             pointRadius: 3,
+            pointHitRadius: 18,
+            pointHoverRadius: 6,
              segment: {
                 borderColor : function(context){
                     const prev = context.p0.parsed.y;
@@ -150,6 +167,10 @@
      },// 線の色
      options: {
          responsive: true, //画面サイズに自動で合わせる
+         interaction: {
+             mode: 'nearest',
+             intersect: false
+         },
          plugins: {
              legend: {
                  display: true,
@@ -168,13 +189,12 @@
                  return;
              }
 
-             const selectedIndex = elements[0].index;
-             const selectedDate = chartLabels[selectedIndex];
-             const selectedBreakdown = breakdownByDate[selectedDate] || emptyBreakdown;
-             myPieChart.data.labels = selectedBreakdown.labels;
-             myPieChart.data.datasets[0].data = selectedBreakdown.values;
-             myPieChart.options.plugins.title.text = `${selectedDate} の内訳（円）`;
-             myPieChart.update();
+             updatePieChart(elements[0].index);
+         },
+         onHover: function(event, elements) {
+             if (elements.length) {
+                 updatePieChart(elements[0].index);
+             }
          },
          scales: {
             x: {

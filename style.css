@@ -1,7 +1,93 @@
-body{
-    background-color: rgba(215, 215, 215, 0.25);
+:root {
+    --ink: #18324a;
+    --muted: #607487;
+    --paper: #ffffff;
+    --background: #eef4f5;
+    --line: #d7e3e6;
+    --accent: #167d78;
+    --shadow: 0 18px 45px rgba(24, 50, 74, 0.09);
 }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px 32px 72px;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 8% 0%, rgba(22, 125, 120, 0.12), transparent 28rem),
+        linear-gradient(135deg, #f7fbfa 0%, var(--background) 100%);
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+h1 {
+    margin: 0;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+}
+
 h1.main-title {
-    color: rgb(50, 17, 17);
+    margin-bottom: 24px;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    font-weight: 700;
+}
+
+h1.subtitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 56px 0 20px;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+h1.subtitle::before {
+    width: 6px;
+    height: 1.4em;
+    border-radius: 3px;
+    background: var(--accent);
+    content: "";
+}
+
+canvas {
+    display: block;
+    width: 100% !important;
+    max-height: 520px;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+}
+
+#myPieChart {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+#chart1 {
+    cursor: crosshair;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 28px 16px 48px;
+    }
+
+    h1.main-title {
+        margin-bottom: 16px;
+    }
+
+    h1.subtitle {
+        margin-top: 40px;
+    }
+
+    canvas {
+        max-height: 420px;
+        padding: 10px;
+        border-radius: 10px;
+    }
 }
 
