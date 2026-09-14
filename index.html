@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私の投資グラフ</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h1 class="main-title">2026年の投資の推移です</h1>
+<canvas id="chart1" ></canvas>  <!-- width,height変更できる-->
+<script>
+ var ctx1 = document.getElementById('chart1').getContext('2d');
+ var myChart = new Chart(ctx1, {
+     type: 'line', // グラフの種類 line,bar,pie,
+     data: {
+         labels: ['3/28', '4/4', '4/11', '4/18', '4/25','5/2','5/9','5/16','5/23','5/30','6/6','6/13','6/20','6/27','7/4','7/11','7/18','7/25','8/1','8/8','8/15','8/22','8/29','9/4','9/11'], // X軸のラベル
+         datasets: [{
+             label: '損益推移（週間）',
+             data: [11,153,399,882,6,-515,128,2089,1140,2337,2675,-721,489,-6974,-1544,-406,-241,4027,531,4872,5496,3456,5359,-590,-3246], // Y軸のデータ
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', // 塗りつぶし色
+            borderWidth: 2, // 線の太さ
+            cubicInterpolationMode: 'monotone',  // ★ここがポイント
+            tension: 0.4,                       // 滑らかさ
+            pointRadius: 3,
+             segment: {
+                borderColor : function(context){
+                    const prev = context.p0.parsed.y;
+                    const current = context.p1.parsed.y;
+
+                    if (current > prev){
+                        return 'rgb(255, 99,132)';
+                    } else if (current < prev){
+                        return 'rgb(54,162, 235)';
+                    }else {
+                        return 'rgb(200, 200, 200)';
+                    }
+                    }
+                    }
+                }]
+     },// 線の色
+     options: {
+         responsive: true, //画面サイズに自動で合わせる
+         plugins: {
+             legend: {
+                 display: true,
+                 position: 'top'
+             },
+             title: {
+                 display: true,
+                 text: 'グラフ1',
+                 font: {
+                    size: 30
+                 },
+             },
+         },
+         scales: {
+            x: {
+                display:true,
+                title:{
+                    display:true
+                }
+            },
+            y: {
+                display:true,
+                title: {
+                    display:true,
+                    text:'損益'
+                },
+                suggestedMin: -8000,
+                suggestedMax: 6000
+             }
+         }
+     },
+ });
+</script>
+<h1 class="subtitle">投資の内訳</h1>
+<canvas id="myPieChart"></canvas>
+<script>
+ const ctx2 = document.getElementById('myPieChart').getContext('2d');
+ const myPieChart = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+        labels:['投資信託', '国内株式（現物）', '米国株式'],
+        datasets: [{
+            data: [56.5,23.1,20.4],
+            backgroundColor: 
+            ['#5ccb9e','#1b6ce3','#ee82da'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend:{
+                position: 'top',
+            },
+            title:{
+                display: true,
+                text:'内訳（%）'
+            }
+        }
+    }
+ });
+
+</script>
+</body>
+</html>
