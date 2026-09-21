@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <aside class="sidebar" aria-label="サイドナビゲーション">
+    <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" data-menu-close></div>
+    <aside class="sidebar" id="sidebar" aria-label="サイドナビゲーション">
         <a class="sidebar-brand" href="index.html#top" aria-label="わたしの投資ノート ホーム">
             <span class="brand-mark">∞</span>
             <span><strong>わたしの投資ノート</strong><small>small steps, big dreams</small></span>
@@ -37,5 +39,6 @@
             </div>
         </section>
     </main>
+    <script src="mobile-nav.js"></script>
 </body>
 </html>

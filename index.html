@@ -33,7 +33,9 @@
         </script>
 </head>
 <body>
-    <aside class="sidebar" aria-label="サイドナビゲーション">
+    <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" data-menu-close></div>
+    <aside class="sidebar" id="sidebar" aria-label="サイドナビゲーション">
         <a class="sidebar-brand" href="#top" aria-label="わたしの投資ノート ホーム">
             <span class="brand-mark">∞</span>
             <span><strong>わたしの投資ノート</strong><small>small steps, big dreams</small></span>
@@ -52,7 +54,12 @@
         </header>
         <section class="intro" id="top">
             <div><p class="eyebrow">MY INVESTMENT JOURNAL</p><h1>育てるたびに、<br><em>ちょっと楽しい。</em></h1><p class="intro-copy">無理なくコツコツ続けている、わたしの投資記録です。<br>国内株式・投資信託・外国株式のポートフォリオを、数字の変化とともに記録しています。</p></div>
-            <div class="sun-sticker" aria-hidden="true"><span>コツ<br>コツ</span><i>✦</i></div>
+        </section>
+        <section class="ad-section" aria-label="広告">
+            <p class="ad-label">ADVERTISEMENT</p>
+            <div class="ad-slot">
+                <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="33d7cc518d02dc8ae52180de6439c4c9"></script>
+            </div>
         </section>
         <section class="summary-grid" id="summary" aria-label="ポートフォリオ概要">
             <article class="summary-card featured"><div class="card-label"><span class="label-icon">◒</span>総資産</div><p class="big-number" id="totalAssetValue">¥368,991</p><p class="card-note positive" id="weeklyAssetChange"><span>↗</span> 前週から 計算中</p></article>
@@ -70,5 +77,6 @@
         </section>
     </main>
     <script src="dashboard-data.js"></script>
+    <script src="mobile-nav.js"></script>
 </body>
 </html>
