@@ -33,43 +33,42 @@
         </script>
 </head>
 <body>
+    <aside class="sidebar" aria-label="サイドナビゲーション">
+        <a class="sidebar-brand" href="#top" aria-label="わたしの投資ノート ホーム">
+            <span class="brand-mark">∞</span>
+            <span><strong>わたしの投資ノート</strong><small>small steps, big dreams</small></span>
+        </a>
+        <nav class="sidebar-nav" aria-label="メインメニュー">
+            <a class="active" href="#top"><span class="nav-icon">⌂</span>ホーム</a>
+            <a href="profile.html"><span class="nav-icon">◎</span>プロフィール</a>
+            <a href="blog.html"><span class="nav-icon">▤</span>ブログ</a>
+            <a href="holdings.html"><span class="nav-icon">▥</span>投資メモ</a>
+            <a href="contact.html"><span class="nav-icon">✉</span>お問い合わせ</a>
+        </nav>
+    </aside>
     <main class="page-shell">
         <header class="site-header">
-            <a class="brand" href="#top" aria-label="わたしの投資ノート ホーム"><span class="brand-mark">∞</span><span><strong>わたしの投資ノート</strong><small>small steps, big dreams</small></span></a>
             <span class="updated"><span class="status-dot"></span>最終更新 2026.09.11</span>
         </header>
         <section class="intro" id="top">
             <div><p class="eyebrow">MY INVESTMENT JOURNAL</p><h1>育てるたびに、<br><em>ちょっと楽しい。</em></h1><p class="intro-copy">無理なくコツコツ続けている、わたしの投資記録です。<br>国内株式・投資信託・外国株式のポートフォリオを、数字の変化とともに記録しています。</p></div>
             <div class="sun-sticker" aria-hidden="true"><span>コツ<br>コツ</span><i>✦</i></div>
         </section>
-        <section class="summary-grid" aria-label="ポートフォリオ概要">
+        <section class="summary-grid" id="summary" aria-label="ポートフォリオ概要">
             <article class="summary-card featured"><div class="card-label"><span class="label-icon">◒</span>総資産</div><p class="big-number" id="totalAssetValue">¥368,991</p><p class="card-note positive" id="weeklyAssetChange"><span>↗</span> 前週から 計算中</p></article>
-            <article class="summary-card"><div class="card-label"><span class="label-icon coral">↗</span>今週の損益</div><p class="big-number coral-text">-¥3,246</p><p class="card-note quiet">じっくり見守り中</p></article>
+            <article class="summary-card"><div class="card-label"><span class="label-icon coral">↗</span>損益</div><p class="big-number coral-text" id="currentProfitValue">計算中</p><p class="card-note quiet">最新週の確定損益</p></article>
             <article class="summary-card"><div class="card-label"><span class="label-icon yellow">⌁</span>運用期間</div><p class="big-number">約 6ヶ月</p><p class="card-note quiet">2026年3月からスタート</p></article>
         </section>
-        <section class="chart-section" aria-labelledby="trend-title">
+        <section class="chart-section" id="trend" aria-labelledby="trend-title">
             <div class="section-heading"><div><p class="eyebrow">WEEKLY RECORD</p><h2 id="trend-title">損益のゆるやかな推移</h2></div><span class="hint">グラフにカーソルを合わせてみてね</span></div>
-            <div class="chart-frame"><canvas id="chart1" aria-label="週間損益と保有資産額の推移グラフ"></canvas></div>
+            <div class="year-tabs" id="yearTabs" aria-label="表示する年"></div>
+            <div class="chart-frame"><canvas id="chart1" aria-label="損益と保有資産額の推移グラフ"></canvas></div>
         </section>
-        <section class="breakdown-section" aria-labelledby="breakdown-title">
-            <div class="section-heading"><div><p class="eyebrow">ASSET BREAKDOWN</p><h2 id="breakdown-title">いまの内訳</h2></div><span class="selected-date" id="selectedDate">9/11 時点</span></div>
+        <section class="breakdown-section" id="breakdown" aria-labelledby="breakdown-title">
+            <div class="section-heading"><div><p class="eyebrow">ASSET BREAKDOWN</p><h2 id="breakdown-title">いまの内訳</h2></div><span class="selected-date" id="selectedDate">計算中</span></div>
             <div class="breakdown-layout"><div class="pie-frame"><canvas id="myPieChart" aria-label="国内株式、投資信託、外国株式の資産配分グラフ"></canvas></div><div class="legend-note"><p class="note-title">ひとことメモ</p><p>投資信託を中心に、国内株式と外国株式を少しずつ。焦らず、自分のペースで分散中です。</p><div class="mini-rule"></div><p class="note-caption">数字は毎週末に記録しています</p></div></div>
         </section>
     </main>
-    <script>
-        const chartLabels = ['3/28', '4/4', '4/11', '4/18', '4/25', '5/2', '5/9', '5/16', '5/23', '5/30', '6/6', '6/13', '6/20', '6/27', '7/4', '7/11', '7/18', '7/25', '8/1', '8/8', '8/15', '8/22', '8/29', '9/4', '9/11'];
-        const profitData = [11, 153, 399, 882, 6, -515, 128, 2089, 1140, 2337, 2675, -721, 489, -6974, -1544, -406, -241, 4027, 531, 4872, 5496, 3456, 5359, -590, -3246];
-        const breakdownByDate = {'3/28': [2163, 0, 0], '4/4': [7171, 10288, 0], '4/11': [7033, 10673, 0], '4/18': [12872, 10996, 0], '4/25': [17757, 11062, 0], '5/2': [17805, 50496, 0], '5/9': [17274, 51614, 0], '5/16': [13860, 52766, 0], '5/23': [13000, 52677, 0], '5/30': [20888, 93700, 0], '6/6': [26817, 94525, 0], '6/13': [38301, 92235, 0], '6/20': [39184, 94892, 29860], '6/27': [75975, 93680, 24768], '7/4': [75860, 134369, 26101], '7/11': [77370, 135518, 26035], '7/18': [77540, 135532, 26016], '7/25': [81580, 135196, 26579], '8/1': [82560, 171950, 52066], '8/8': [82910, 175530, 52478], '8/15': [79660, 178816, 53066], '8/22': [81140, 175892, 52470], '8/29': [81010, 218007, 78623], '9/4': [81700, 212973, 77017], '9/11': [85280, 208359, 75352]};
-        const assetLabels = ['国内株式（現物）', '投資信託', '外国株式'];
-        const totalAssetData = chartLabels.map((date) => (breakdownByDate[date] || [0, 0, 0]).reduce((total, amount) => total + amount, 0));
-        const latestAsset = totalAssetData.at(-1);
-        const previousAsset = totalAssetData.at(-2);
-        const weeklyAssetChange = latestAsset - previousAsset;
-        document.getElementById('totalAssetValue').textContent = `¥${latestAsset.toLocaleString()}`;
-        document.getElementById('weeklyAssetChange').innerHTML = `<span>${weeklyAssetChange >= 0 ? '↗' : '↘'}</span> 前週から ${weeklyAssetChange >= 0 ? '+' : '-'}¥${Math.abs(weeklyAssetChange).toLocaleString()}`;
-        const myPieChart = new Chart(document.getElementById('myPieChart').getContext('2d'), {type: 'doughnut', data: {labels: assetLabels, datasets: [{data: breakdownByDate['9/11'], backgroundColor: ['#ff8b73', '#55c7a5', '#ffd166'], borderWidth: 5, borderColor: '#fffdf9', hoverOffset: 8}]}, options: {responsive: true, maintainAspectRatio: false, cutout: '68%', plugins: {legend: {position: 'bottom', labels: {padding: 18, usePointStyle: true, pointStyle: 'circle', font: {family: 'Nunito', size: 12}}}, tooltip: {callbacks: {label: (item) => ` ${item.label}: ¥${item.raw.toLocaleString()}`}}}}});
-        function updatePieChart(index) { const selectedDate = chartLabels[index]; myPieChart.data.datasets[0].data = breakdownByDate[selectedDate] || [0, 0, 0]; myPieChart.update(); document.getElementById('selectedDate').textContent = `${selectedDate} 時点`; }
-        new Chart(document.getElementById('chart1').getContext('2d'), {type: 'line', data: {labels: chartLabels, datasets: [{label: '週間損益', data: profitData, yAxisID: 'profit', borderColor: '#55c7a5', backgroundColor: 'rgba(85, 199, 165, .13)', fill: true, borderWidth: 3, tension: .42, pointRadius: 3, pointHoverRadius: 7, pointBackgroundColor: '#fffdf9', pointBorderColor: '#55c7a5', pointBorderWidth: 2}, {label: '保有資産額', data: totalAssetData, yAxisID: 'asset', borderColor: '#ff8b73', backgroundColor: 'transparent', fill: false, borderWidth: 2, borderDash: [6, 5], tension: .35, pointRadius: 2, pointHoverRadius: 6, pointBackgroundColor: '#fffdf9', pointBorderColor: '#ff8b73', pointBorderWidth: 2}]}, options: {responsive: true, maintainAspectRatio: false, interaction: {mode: 'index', intersect: false}, plugins: {legend: {display: true, position: 'top', labels: {usePointStyle: true, padding: 18, font: {family: 'Nunito', size: 11}}}, tooltip: {displayColors: false, backgroundColor: '#25443f', padding: 12, cornerRadius: 10, callbacks: {label: (item) => ` ${item.dataset.label}: ¥${item.raw.toLocaleString()}`}}}, scales: {x: {grid: {display: false}, ticks: {color: '#8a9b98', font: {family: 'Nunito', size: 11}, maxTicksLimit: 9}}, profit: {position: 'left', grid: {color: '#e8efec'}, ticks: {color: '#8a9b98', callback: (value) => `¥${value.toLocaleString()}`}, suggestedMin: -8000, suggestedMax: 6000}, asset: {position: 'right', grid: {drawOnChartArea: false}, ticks: {color: '#ff8b73', callback: (value) => `¥${(value / 1000).toFixed(0)}k`}}}, onClick: (event, elements) => {if (elements.length) updatePieChart(elements[0].index);}, onHover: (event, elements) => {event.native.target.style.cursor = elements.length ? 'pointer' : 'default';}}});
-    </script>
+    <script src="dashboard-data.js"></script>
 </body>
 </html>

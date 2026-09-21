@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="投資状況や資産運用について定期的に更新するブログです。">
+    <title>ブログ | わたしの投資ノート</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar" aria-label="サイドナビゲーション">
+        <a class="sidebar-brand" href="index.html#top" aria-label="わたしの投資ノート ホーム">
+            <span class="brand-mark">∞</span>
+            <span><strong>わたしの投資ノート</strong><small>small steps, big dreams</small></span>
+        </a>
+        <nav class="sidebar-nav" aria-label="メインメニュー">
+            <a href="index.html#top"><span class="nav-icon">⌂</span>ホーム</a>
+            <a href="profile.html"><span class="nav-icon">◎</span>プロフィール</a>
+            <a class="active" href="blog.html"><span class="nav-icon">▤</span>ブログ</a>
+            <a href="holdings.html"><span class="nav-icon">▥</span>投資メモ</a>
+            <a href="contact.html"><span class="nav-icon">✉</span>お問い合わせ</a>
+        </nav>
+    </aside>
+    <main class="page-shell">
+        <header class="site-header">
+            <span class="updated"><span class="status-dot"></span>ブログ</span>
+        </header>
+        <section class="content-page" aria-labelledby="blog-title">
+            <p class="eyebrow">MY BLOG</p>
+            <h1 id="blog-title">投資の記録</h1>
+            <div class="blog-list" id="blogList"></div>
+        </section>
+    </main>
+    <script src="blog-data.js"></script>
+</body>
+</html>

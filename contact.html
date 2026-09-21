@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | わたしの投資ノート</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar" aria-label="サイドナビゲーション">
+        <a class="sidebar-brand" href="index.html#top" aria-label="わたしの投資ノート ホーム">
+            <span class="brand-mark">∞</span>
+            <span><strong>わたしの投資ノート</strong><small>small steps, big dreams</small></span>
+        </a>
+        <nav class="sidebar-nav" aria-label="メインメニュー">
+            <a href="index.html#top"><span class="nav-icon">⌂</span>ホーム</a>
+            <a href="profile.html"><span class="nav-icon">◎</span>プロフィール</a>
+            <a href="blog.html"><span class="nav-icon">▤</span>ブログ</a>
+            <a href="holdings.html"><span class="nav-icon">▥</span>投資メモ</a>
+            <a class="active" href="contact.html"><span class="nav-icon">✉</span>お問い合わせ</a>
+        </nav>
+    </aside>
+    <main class="page-shell">
+        <header class="site-header">
+            <span class="updated"><span class="status-dot"></span>お問い合わせ</span>
+        </header>
+        <section class="content-page" aria-labelledby="contact-title">
+            <p class="eyebrow">CONTACT</p>
+            <h1 id="contact-title">お問い合わせ</h1>
+            <div class="content-panel">
+                <form class="contact-form" action="#" method="post">
+                    <label for="name">お名前<input id="name" name="name" type="text" autocomplete="name" required></label>
+                    <label for="email">メールアドレス<input id="email" name="email" type="email" autocomplete="email" required></label>
+                    <label for="message">お問い合わせ内容<textarea id="message" name="message" required></textarea></label>
+                    <button type="submit">送信する</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

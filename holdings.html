@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="確定した損益と現在保有している銘柄を記録する投資メモです。">
+    <title>投資メモ | わたしの投資ノート</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar" aria-label="サイドナビゲーション">
+        <a class="sidebar-brand" href="index.html#top" aria-label="わたしの投資ノート ホーム">
+            <span class="brand-mark">∞</span>
+            <span><strong>わたしの投資ノート</strong><small>small steps, big dreams</small></span>
+        </a>
+        <nav class="sidebar-nav" aria-label="メインメニュー">
+            <a href="index.html#top"><span class="nav-icon">⌂</span>ホーム</a>
+            <a href="profile.html"><span class="nav-icon">◎</span>プロフィール</a>
+            <a href="blog.html"><span class="nav-icon">▤</span>ブログ</a>
+            <a class="active" href="holdings.html"><span class="nav-icon">▥</span>投資の内訳</a>
+            <a href="contact.html"><span class="nav-icon">✉</span>お問い合わせ</a>
+        </nav>
+    </aside>
+    <main class="page-shell">
+        <header class="site-header">
+            <span class="updated"><span class="status-dot"></span>投資メモ</span>
+        </header>
+        <section class="content-page" aria-labelledby="holdings-title">
+            <p class="eyebrow">INVESTMENT RECORDS</p>
+            <h1 id="holdings-title">投資メモ</h1>
+            <div class="record-grid">
+                <section class="record-section" aria-labelledby="realized-title">
+                    <h2 id="realized-title">確定した損益</h2>
+                    <p class="record-description">売却が完了した銘柄の損益を記録します。</p>
+                    <div class="record-table-wrap">
+                        <table class="record-table">
+                            <thead><tr><th>売却日</th><th>銘柄名</th><th>数量</th><th>売却金額</th><th>確定損益</th></tr></thead>
+                            <tbody id="realizedRows"></tbody>
+                            <tfoot id="realizedTotal"></tfoot>
+                        </table>
+                    </div>
+                    <p class="record-note">更新日：<time id="realizedUpdatedDate"></time> </p>
+                </section>
+                <section class="record-section" aria-labelledby="current-title">
+                    <h2 id="current-title">現在保有している銘柄</h2>
+                    <p class="record-description">現在保有中の銘柄と評価額を記録します。</p>
+                    <div class="record-table-wrap">
+                        <table class="record-table">
+                            <thead><tr><th>銘柄名</th><th>種類</th><th>数量</th><th>取得単価</th><th>評価額</th><th>評価損益</th></tr></thead>
+                            <tbody id="holdingRows"></tbody>
+                            <tfoot id="holdingTotal"></tfoot>
+                        </table>
+                    </div>
+                    <p class="record-note">基準日：<time id="holdingsUpdatedDate"></time> </p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="holdings-data.js"></script>
+</body>
+</html>
