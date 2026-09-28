@@ -1,0 +1,81 @@
+.gacha-page { max-width: 760px; padding-top: 45px; }
+.gacha-shell .updated,
+.gacha-lead,
+.budget-option,
+.category-picker > p,
+.budget-display span,
+.budget-display small,
+.meal-label,
+.meal-price,
+.result-note,
+.menu-caveat { color: #586b62; }
+.gacha-page > .eyebrow { margin-bottom: 8px; }
+.gacha-page > .eyebrow,
+.draw-caption span { color: #28785a; }
+.gacha-page h1 { margin-bottom: 10px; font-size: clamp(30px, 5vw, 44px); }
+.gacha-lead { margin: 0 0 24px; font-size: 14px; line-height: 1.9; }
+.budget-picker { margin: 0 0 18px; padding: 13px 16px 15px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255, 253, 249, .78); }
+.budget-picker legend { padding: 0 6px; color: var(--ink); font-size: 12px; font-weight: 800; }
+.budget-options { display: flex; width: fit-content; gap: 4px; padding: 4px; border-radius: 9px; background: #edf3ef; }
+.budget-option { min-width: 104px; min-height: 38px; padding: 7px 14px; border: 1px solid transparent; border-radius: 7px; color: var(--muted); background: transparent; cursor: pointer; font: inherit; font-size: 13px; font-weight: 800; }
+.budget-option[aria-pressed="true"] { border-color: #cfe9df; color: var(--ink); background: #fff; box-shadow: 0 2px 6px rgba(40, 87, 72, .08); }
+.budget-option:focus-visible { outline: 2px solid #3eaf8d; outline-offset: 2px; }
+.category-picker { margin: 0 0 18px; padding: 17px 20px 19px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255, 253, 249, .9); box-shadow: 0 8px 22px rgba(40, 87, 72, .04); }
+.category-picker legend { padding: 0 7px; color: #34413c; font-size: 13px; font-weight: 800; }
+.category-picker > p { margin: 0 0 12px; font-size: 11px; }
+.category-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.category-option { display: flex; min-height: 42px; align-items: center; gap: 9px; padding: 8px 10px; border: 1px solid #e8e9e2; border-radius: 7px; color: #47534c; background: #fff; cursor: pointer; font-size: 12px; font-weight: 700; }
+.category-option:has(input:checked) { border-color: var(--mint); background: #f1faf6; }
+.category-option input { width: 16px; height: 16px; margin: 0; accent-color: var(--mint); }
+.category-option:focus-within { outline: 2px solid #f3b04d; outline-offset: 2px; }
+.gacha-machine { overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: rgba(255, 253, 249, .9); box-shadow: 0 8px 22px rgba(40, 87, 72, .04); }
+.machine-top { display: flex; min-height: 112px; align-items: center; justify-content: space-between; padding: 20px 30px; border-bottom: 1px solid var(--line); background: #f1f6f3; }
+.draw-caption { display: grid; gap: 5px; color: var(--ink); }
+.draw-caption span { font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+.draw-caption strong { font-family: 'Kiwi Maru', serif; font-size: 18px; font-weight: 500; }
+.budget-display { display: grid; justify-items: end; color: var(--ink); }
+.budget-display span { font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+.budget-display strong { font-size: 43px; line-height: 1.2; }
+.budget-display small { font-size: 10px; }
+.result-area { height: 320px; padding: 24px 38px 8px; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.result-placeholder { display: grid; min-height: 196px; place-content: center; margin: 0; color: #586b62; font-family: 'Kiwi Maru', serif; font-size: 17px; line-height: 1.9; text-align: center; }
+.meal-list { display: grid; gap: 0; }
+.meal-item { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; min-height: 43px; align-items: center; gap: 10px; border-bottom: 1px solid #eeeae3; }
+.meal-item.is-main { min-height: 52px; }
+.meal-label { font-size: 9px; font-weight: 800; letter-spacing: .1em; }
+.is-main .meal-label { color: #a63a2b; }
+.meal-name { overflow-wrap: anywhere; color: #34413c; font-size: 13px; font-weight: 700; }
+.meal-price { font-size: 13px; font-weight: 700; white-space: nowrap; }
+.meal-total { display: flex; align-items: center; justify-content: space-between; padding: 17px 0 9px; color: #34413c; font-weight: 800; }
+.meal-total strong { color: #b63a2b; font-size: 28px; }
+.draw-button { display: flex; min-height: 52px; align-items: center; justify-content: center; gap: 10px; width: calc(100% - 60px); margin: 4px 30px 16px; border: 0; border-radius: 9px; color: #fff; background: var(--mint); box-shadow: 0 3px 0 #3eaf8d; cursor: pointer; font: inherit; font-size: 14px; font-weight: 800; transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+.draw-button:hover { background: #3eaf8d; transform: translateY(-1px); box-shadow: 0 4px 0 #318e72; }
+.draw-button:active { transform: translateY(2px); box-shadow: 0 1px 0 #318e72; }
+.draw-button:focus-visible { outline: 3px solid #f3b04d; outline-offset: 3px; }
+.draw-button span { display: inline-block; font-size: 22px; line-height: 1; }
+.draw-button.is-spinning span { animation: draw-spin .55s ease-out; }
+.result-note { min-height: 18px; margin: 0 38px 20px; font-size: 11px; text-align: center; }
+.menu-caveat { margin: 14px 0 7px; font-size: 10px; line-height: 1.8; }
+.official-menu-link { color: #267254; font-size: 11px; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+@keyframes draw-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@media (max-width: 680px) {
+    .gacha-page { padding-top: 45px; }
+    .gacha-page h1 { font-size: 32px; }
+    .gacha-lead { max-width: 290px; font-size: 12px; line-height: 1.8; }
+    .budget-picker { padding: 12px 13px 14px; }
+    .budget-options { width: 100%; }
+    .budget-option { flex: 1; min-width: 0; }
+    .category-picker { padding: 14px 13px 15px; }
+    .category-options { grid-template-columns: 1fr; gap: 6px; }
+    .category-option { min-height: 40px; }
+    .machine-top { min-height: 104px; padding: 16px 18px; }
+    .draw-caption strong { font-size: 15px; }
+    .budget-display strong { font-size: 31px; }
+    .result-area { height: 290px; padding: 18px 22px 5px; }
+    .result-placeholder { min-height: 190px; font-size: 15px; }
+    .meal-item { grid-template-columns: 39px minmax(0, 1fr) auto; gap: 7px; }
+    .meal-name, .meal-price { font-size: 12px; }
+    .meal-total strong { font-size: 25px; }
+    .draw-button { width: calc(100% - 36px); margin: 4px 18px 14px; }
+    .result-note { margin: 0 20px 18px; line-height: 1.7; }
+}

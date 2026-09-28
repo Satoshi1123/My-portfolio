@@ -1,0 +1,140 @@
+const yudetaroMenu = {
+    budgets: [1000, 1500],
+    defaultBudget: 1000,
+    categories: [
+        {
+            id: 'hot-soba',
+            label: '温かいそば',
+            items: [
+                { name: 'かけそば', price: 430 },
+                { name: '野菜かきあげそば', price: 550 },
+                { name: '天玉そば', price: 620 },
+                { name: '肉茄子そば', price: 770 },
+                { name: 'とり舞茸天そば', price: 840 },
+                { name: '中華そば', price: 560 },
+                { name: 'ハーフそば', price: 290 }
+            ]
+        },
+        {
+            id: 'cold-soba',
+            label: '冷たいそば',
+            items: [
+                { name: 'もりそば', price: 430 },
+                { name: 'ざるそば', price: 530 },
+                { name: '2枚もり', price: 790 },
+                { name: '2枚ざる', price: 890 },
+                { name: '特もり', price: 980 },
+                { name: '特ざる', price: 1080 },
+                { name: '1キロもり', price: 1300 },
+                { name: '1キロざる', price: 1400 },
+                { name: '野菜かきあげそば（冷）', price: 550 },
+                { name: '薬味そば', price: 760 },
+                { name: 'とり舞茸天もり（冷）', price: 840 },
+                { name: '肉茄子せいろ', price: 770 },
+                { name: '肉茄子せいろ1.5倍', price: 850},
+                { name: '月見とろろそば', price: 760 },
+                { name: '月見とろろそば1.5倍', price: 840 },
+                { name: 'ハーフそば（冷）', price: 290 },
+                { name: 'なめこおろしそば', price: 740 },
+                { name: 'なめこおろしそば1.5倍', price: 820 },
+                { name: 'ざる中華', price: 560 },
+            ]
+        },
+        {
+            id: 'soba-sets',
+            label: 'ごはんとお蕎麦のセット',
+            items: [
+                { name: 'かき揚げ丼セット', price: 750 },
+                { name: 'ミニかつ丼セット', price: 850 },
+                { name: 'ミニカレーセット', price: 750 },
+                { name: 'ミニ海老天とじ丼セット', price: 950 },
+                { name: 'ミニとり舞茸天丼セット', price: 950 },
+                { name: 'ミニもつ炒め丼セット', price: 950 },
+                { name: '月見とろろミニ丼セット', price: 860 },
+                { name: 'ミニのり弁セット', price: 820 },
+                { name: 'ミニ焼鯖おろしごはんセット', price: 840 },
+                { name: 'ミニカツカレーセット', price: 850 },
+                { name: '満腹かつ丼セット', price: 1070 },
+                { name: '満腹カレーライスセット', price: 1000 },
+                { name: '満腹カツカレーセット', price: 1070 },
+            ]
+        },
+        {
+            id: 'motsu',
+            label: 'もつメニュー',
+            items: [
+                { name: 'もつ煮定食', price: 900 },
+                { name: '大もつ煮定食', price: 1050 },
+                { name: 'もつ炒め定食', price: 900 },
+                { name: '大もつ炒め定食', price: 1050 },
+                { name: '合い盛りもつ定食', price: 1300 },
+                { name: 'もつ炒めカレー定食', price: 1000 }
+            ]
+        }
+    ],
+    sideCategories: [
+        {
+            id: 'alcohol',
+            label: 'アルコール（サイド）',
+            items: [
+                { name: 'スーパードライ', price: 280 },
+                { name: '角ハイボール', price: 280 },
+                { name: 'レモンサワー', price: 220 },
+                { name: 'ゆで呑みセット（ビールorハイボール）', price: 760 },
+                { name: 'ゆで呑みセット（レモンサワー）', price: 700 },
+                { name: 'もつ呑みセット（ビールorハイボール）', price: 860 },
+                { name: 'もつ呑みセット（レモンサワー）', price: 800 }
+            ]
+        }
+    ],
+    sides: [
+        { name: '海老天', price: 150 },
+        { name: '野菜かきあげ', price: 150 },
+        { name: '太刀魚のちくわ天（2ケ）', price: 120 },
+        { name: 'ハーフかつ', price: 220 },
+        { name: '白身フライ', price: 220 },
+        { name: 'コロッケ', price: 100 },
+        { name: 'かつ煮', price: 370 },
+        { name: 'ごはん', price: 200 },
+        { name: '肉茄子つけ汁', price: 370 },
+        { name: 'カレールー', price: 220 },
+        { name: 'とろろ', price: 260 },
+        { name: 'お椀そば', price: 180 },
+        { name: '鬼おろし', price: 120 },
+        { name: '焼きのり4枚', price: 150 },
+        { name: '三陸わかめ', price: 150 },
+        { name: 'おひたし', price: 150 },
+        { name: '納豆', price: 130 },
+        { name: '生卵', price:100 },
+        { name: '温泉卵', price: 100 },
+        { name: 'きざみのり', price: 100 },
+        { name: 'おみ漬け', price: 100 },
+        { name: 'もり汁セット', price: 100 },
+        { name: 'たっぷり薬味ねぎ', price: 70 },
+        { name: '鰹枯れ節', price: 70 },
+        { name: 'もつ煮', price: 600 },
+        { name: 'もつ炒め', price: 600 },
+        { name: '大もつ煮', price: 760 },
+        { name: '大もつ炒め', price: 760 },
+        { name: 'ごはん並', price: 250 },
+        { name: 'ごはん大', price: 350 },
+        { name: '鯖おろし', price: 320 },
+        { name: '天抜き', price: 200 },
+        { name: 'そば大盛', price: 100, appliesTo: ['hot-soba', 'cold-soba', 'soba-sets'] },
+        { name: 'ごはん大盛', price: 100, appliesTo: ['soba-sets', 'motsu'] },
+        { name: 'ハーフそば変更', price: 100, appliesTo: ['motsu']},
+        { name: 'ミニかつ丼', price: 430},
+        { name: 'ミニカレー', price: 400},
+        { name: 'ミニかき揚げ丼', price: 400},
+        { name: 'ミニ海老天とじ丼', price: 530},
+        { name: 'ミニとり舞茸天丼', price: 530},
+        { name: 'ミニもつ炒め丼', price: 530},
+        { name: '月見とろろミニ丼', price: 520},
+        { name: 'ミニのり弁', price: 480},
+        { name: 'ミニ焼鯖おろしごはん', price: 500},
+        { name: 'ミニカツカレー', price: 430},
+        { name: 'かつ丼', price: 780},
+        { name: 'カレーライス', price: 660},
+        { name: 'カツカレー', price: 780}
+    ]
+};

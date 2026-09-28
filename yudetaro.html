@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ゆで太郎の温かいそば・冷たいそば・ごはんセット・もつメニューから選ぶ予算ガチャ。1,000円または1,500円以内で、予算に近いメインとサイドの組み合わせを抽選します。">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#55c7a5">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="わたしの投資ノート">
+    <meta property="og:title" content="ゆで太郎予算ガチャ | 1,000円・1,500円">
+    <meta property="og:description" content="選んだ予算以内で、ゆで太郎のメインとサイドを組み合わせ。温冷そば、セット、もつメニューから選べます。">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ゆで太郎予算ガチャ | 1,000円・1,500円">
+    <meta name="twitter:description" content="選んだ予算以内で、ゆで太郎のメインとサイドを組み合わせ。温冷そば、セット、もつメニューから選べます。">
+    <title>ゆで太郎予算ガチャ | 1,000円・1,500円でメニュー抽選</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ゆで太郎予算ガチャ",
+        "description": "ゆで太郎のメインとサイドを、選んだ予算以内で組み合わせるメニュー抽選ツール。",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Any",
+        "inLanguage": "ja-JP",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="yudetaro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" data-menu-close></div>
+    <aside class="sidebar" id="sidebar" aria-label="サイドナビゲーション">
+        <a class="sidebar-brand" href="index.html#top" aria-label="わたしの投資ノート ホーム">
+            <span class="brand-mark">∞</span>
+            <span><strong>わたしの投資ノート</strong><small>small steps, big dreams</small></span>
+        </a>
+        <nav class="sidebar-nav" aria-label="メインメニュー">
+            <a href="index.html#top"><span class="nav-icon">⌂</span>ホーム</a>
+            <a href="profile.html"><span class="nav-icon">◎</span>プロフィール</a>
+            <a href="blog.html"><span class="nav-icon">▤</span>ブログ</a>
+            <a href="holdings.html"><span class="nav-icon">▥</span>投資メモ</a>
+            <a class="active" href="yudetaro.html"><span class="nav-icon">♨</span>ゆで太郎ガチャ</a>
+            <a href="contact.html"><span class="nav-icon">✉</span>お問い合わせ</a>
+        </nav>
+    </aside>
+    <main class="page-shell gacha-shell">
+        <header class="site-header">
+            <span class="updated"><span class="status-dot"></span>選択中の予算 <span id="headerBudgetAmount">¥1,000</span></span>
+        </header>
+        <section class="ad-banner" aria-label="広告">
+            <!-- admax -->
+            <script src="https://adm.shinobi.jp/s/3f08dc7a9b259b4a2bb41ed3002d7f94"></script>
+            <!-- admax -->
+        </section>
+        <section class="content-page gacha-page" aria-labelledby="gacha-title">
+            <p class="eyebrow">SOBA LUNCH DRAW</p>
+            <h1 id="gacha-title">ゆで太郎予算ガチャ</h1>
+            <p class="gacha-lead">好きなメニューの種類を選んで、選んだ予算以内で予算に近い組み合わせに。</p>
+            <fieldset class="budget-picker">
+                <legend>予算を選択</legend>
+                <div class="budget-options" id="budgetOptions" role="group" aria-label="予算"></div>
+            </fieldset>
+            <fieldset class="category-picker" id="categoryPicker">
+                <legend>抽選するメニュー</legend>
+                <p>外したい種類のチェックを外してください。アルコールはサイド候補です。</p>
+                <div class="category-options" id="categoryOptions"></div>
+            </fieldset>
+            <section class="gacha-machine" aria-label="ゆで太郎ガチャの結果">
+                <div class="machine-top">
+                    <div class="draw-caption"><span>RESULT</span><strong>今回の組み合わせ</strong></div>
+                    <div class="budget-display"><span>TOTAL BUDGET</span><strong id="budgetAmount">¥1,000</strong><small>税込・目安</small></div>
+                </div>
+                <div class="result-area" id="resultArea" aria-live="polite" aria-atomic="true">
+                    <p class="result-placeholder">メニューの種類を選んだら<br>ボタンを押してお楽しみ。</p>
+                </div>
+                <button class="draw-button" id="drawButton" type="button"><span aria-hidden="true">⟳</span>ガチャを回す</button>
+                <p class="result-note" id="resultNote">選んだカテゴリからメイン1品とサイドを組み合わせ、予算内で最大額を目指します。</p>
+            </section>
+            <p class="menu-caveat">価格はゆで太郎システムグループのメニューを参考にした税込表示です。店舗・時期により取扱商品や価格が異なります。</p>
+            <a class="official-menu-link" href="https://yudetaro.jp/menu/" target="_blank" rel="noreferrer noopener">公式メニューを確認 <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+    <script src="yudetaro-menu.js"></script>
+    <script src="yudetaro.js"></script>
+    <script src="mobile-nav.js"></script>
+</body>
+</html>
